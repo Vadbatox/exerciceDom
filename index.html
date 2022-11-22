@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+    <title>Document</title>
+</head>
+<style>
+    table {
+        margin-top: 20px;
+    }
+    
+    .form input {
+        display: block;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 class="display-2" style="text-align: center; font-family: Maiandra GD; font-weight: 100; margin-bottom: 40px;">Liste des Apprenants</h1>
+        <div class="form">
+            <form id="form" action="">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom" style="width: 500px ;">
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="postnom" placeholder="Postnom" style="width: 500px ;">
+                    <label for="Postnom">Postnom</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prenom" style="width: 500px ;">
+                    <label for="prenom">Prenom</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="btnM" value="Masculin">
+                    <label class="form-check-label" for="btnM">
+                        Masculin
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="btnF" value="Feminin">
+                    <label class="form-check-label" for="btnF" style="margin-bottom: 10px ;">
+                        Feminin
+                    </label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="pays" placeholder="Pays" style="width: 500px ;">
+                    <label for="pays">Pays</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="github" placeholder="https://github.com/usernam " style="width: 500px ;">
+                    <label for="github">Github</label>
+                </div>
+
+
+                <button class="btn btn-info" id="boutonEnvoie" type="submit "></button>
+            </form>
+        </div>
+
+        <table class="table table-bordered border-primary " style="font-family: Maiandra GD ;">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Postnom</th>
+                    <th>Prenom</th>
+                    <th>Genre</th>
+                    <th>Pays</th>
+                    <th>Github</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="tableau">
+
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="bootstrap/js/bootstrap.min.js "></script>
+    <script src="javascript.js "></script>
+</body>
+
+</html>
