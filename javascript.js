@@ -18,48 +18,7 @@ let apprenantModifie = null;
 NettoyerChamps()
 editionModeActif()
 
-let listeApprenants = [
-
-    {
-        'nom': "Batomene",
-        'postnom': "Luyambula",
-        'prenom': "Vad",
-        'pays': "RD Congo",
-        'genre': "Masculin",
-        'github': "https://github.com/Vadbatox"
-
-    },
-
-    {
-        'nom': "Katoto",
-        'postnom': "Mbula",
-        'prenom': "Percide",
-        'pays': "RD Congo",
-        'genre': "Feminin",
-        'github': "https://github.com/Katox"
-
-    },
-
-    {
-        'nom': "Mbuyi",
-        'postnom': "Mwamba",
-        'prenom': "Monica",
-        'pays': "RD Congo",
-        'genre': "Feminin",
-        'github': "https://github.com/Sloe"
-
-    },
-
-    {
-        'nom': "Nzau",
-        'postnom': "Ngana",
-        'prenom': "Gaithan",
-        'pays': "RD Congo",
-        'genre': "Masculin",
-        'github': "https://github.com/Gaga"
-
-    }
-]
+let listeApprenants = []
 
 function chargerTableau() {
     corpsdutableau.innerHTML = ''
