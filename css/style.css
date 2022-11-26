@@ -42,3 +42,20 @@ h1 {
 table {
     margin-top: 10px;
 }
+
+@media (max-width: 1200px) {
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .container2 .contenu {
+        padding-left: 10px;
+        display: flexbox;
+        width: 100%;
+        align-content: space-between;
+    }
+    body {
+        background-color: red;
+    }
+}
