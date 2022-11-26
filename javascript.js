@@ -15,7 +15,7 @@ let editionMode = false
 let etatBouton = document.getElementById("boutonEnvoie")
 let apprenantModifie = null;
 
-NettoyerChamps()
+nettoyerChamps()
 editionModeActif()
 
 let listeApprenants = []
@@ -33,7 +33,7 @@ function chargerTableau() {
              <td>
                  <a href="${apprenant.github}"></a>${apprenant.github}</td>
              <td>
-                 <button class="btn btn-danger" onclick='supprimerApprenant(this)'>Supprimer</button>
+                 <button class="btn btn-danger" onclick='supprimerApprenant(this, ${listeApprenants.indexOf(apprenant)})'>Supprimer</button>
                  <button class="btn btn-primary" data-nom="${apprenant.nom}" data-postnom="${apprenant.postnom}" data-prenom="${apprenant.prenom}"
                  data-genre="${apprenant.genre}" data-pays="${apprenant.pays}" data-github="${apprenant.github}"
                  onclick="modifierApprenant(this)">Modifier</button>
@@ -44,7 +44,6 @@ function chargerTableau() {
     }
 }
 
-chargerTableau();
 
 formulaire.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -54,10 +53,10 @@ formulaire.addEventListener('submit', function(event) {
     } else {
         ajouterApprenant()
     }
-    NettoyerChamps();
+    nettoyerChamps();
 })
 
-function NettoyerChamps() {
+function nettoyerChamps() {
     newnom.value = "";
     newpostnom.value = "";
     newprenom.value = "";
@@ -67,18 +66,31 @@ function NettoyerChamps() {
     newnom.focus();
 }
 
-function supprimerApprenant(e) {
-
+function supprimerApprenant(e, index) {
     let confirmation = window.confirm("Voulez vous vraiment supprimer cet etudiant ?")
     if (confirmation == true) {
-        e.parentNode.parentNode.remove();
+        listeApprenants.splice(index, 1)
         alert("L'apprenant a été supprimé avec succes !!!")
-        NettoyerChamps()
+
+        chargerTableau()
+
+        nettoyerChamps()
+
+        liste()
+
+        // let confirmation = window.confirm("Voulez vous vraiment supprimer cet etudiant ?")
+        // if (confirmation == true) {
+        //     let asupprimer = e.parentNode.parentNode
+        //     e.parentNode.parentNode.remove()
+        //     alert("L'apprenant a été supprimé avec succes !!!")
+        //     nettoyerChamps()
+
     }
 
 }
 
 function ajouterApprenant() {
+    corpsdutableau.innerHTML = ''
     for (const gr of newgenres) {
         if (gr.checked) {
             var newGenreValue = gr.value;
@@ -106,7 +118,7 @@ function editionModeActif(enabled) {
         editionMode = false
         etatBouton.innerHTML = "Ajouter"
         apprenantModifie = null
-        NettoyerChamps()
+        nettoyerChamps()
     }
 }
 
@@ -153,3 +165,28 @@ function mettreAjourApprenant() {
     }
 
 }
+
+const homme = document.createElement("ol")
+const femme = document.createElement("ol")
+
+function liste() {
+    homme.innerHTML = ''
+    femme.innerHTML = ''
+    for (let i = listeApprenants.length - 1; i >= 0; i--) {
+        if (listeApprenants[i].genre == "Masculin") {
+            const nomsElement = document.createElement("li")
+            nomsElement.innerText = listeApprenants[i].nom + " " + listeApprenants[i].postnom + " " + listeApprenants[i].prenom
+            homme.appendChild(nomsElement)
+        } else {
+            const nomsElement = document.createElement("li")
+            nomsElement.innerText = listeApprenants[i].nom + " " + listeApprenants[i].postnom + " " + listeApprenants[i].prenom
+            femme.appendChild(nomsElement)
+        }
+    }
+    document.querySelector(".divhomme").appendChild(homme)
+    document.querySelector(".divfemme").appendChild(femme)
+}
+
+formulaire.addEventListener('submit', function() {
+    liste()
+});

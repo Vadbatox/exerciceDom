@@ -1,0 +1,44 @@
+.form input {
+    display: block;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Maiandra GD;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+
+.form-control {
+    width: 500px;
+}
+
+.table-bordered border-primary {
+    font-family: Maiandra GD;
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container2 .contenu {
+    padding-left: 10px;
+    display: flex;
+    width: 49%;
+}
+
+.contenu .divfemme,
+.contenu .divhomme {
+    width: 49%;
+}
+
+.contenu div {
+    padding-bottom: 10px;
+}
+
+table {
+    margin-top: 10px;
+}
